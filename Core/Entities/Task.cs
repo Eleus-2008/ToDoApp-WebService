@@ -1,7 +1,7 @@
 using System;
-using ToDoApp.Model.Interfaces;
+using Core.Entities.Base;
 
-namespace ToDoApp.Model
+namespace Core.Entities
 {
     public class Task : IEntity
     {

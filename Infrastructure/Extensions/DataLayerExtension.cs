@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Data.Extensions
+namespace Infrastructure.Extensions
 {
     public static class DataLayerExtension
     {
@@ -11,8 +12,6 @@ namespace Data.Extensions
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
             services.AddDbContext<SqlServerContext>(options => options.UseSqlServer(connectionString));
-
-            services.AddTransient<DbContext, SqlServerContext>();
 
             return services;
         }

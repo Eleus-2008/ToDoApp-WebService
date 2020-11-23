@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Model.Enums
+﻿namespace Core.Entities.Enumerations
 {
     public enum TypeOfRepeatTimeSpan
     {

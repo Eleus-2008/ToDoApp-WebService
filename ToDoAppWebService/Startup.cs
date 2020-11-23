@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,8 +43,8 @@ namespace ToDoAppWebService
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
+            app.UseAuthentication();
+            
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

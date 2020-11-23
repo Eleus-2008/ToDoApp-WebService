@@ -1,4 +1,4 @@
-﻿namespace ToDoApp.Model.Interfaces
+﻿namespace Core.Entities.Base
 {
     public interface IEntity
     {

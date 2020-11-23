@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using ToDoApp.Model.Enums;
-using ToDoApp.Model.Interfaces;
+using Core.Entities.Base;
+using Core.Entities.Enumerations;
 
-namespace ToDoApp.Model
+namespace Core.Entities
 {
     public class RepeatingConditions : IEntity
     {

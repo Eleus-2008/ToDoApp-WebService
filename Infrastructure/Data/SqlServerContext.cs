@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using ToDoApp.Model;
+﻿using Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace Data
+namespace Infrastructure.Data
 {
     public class SqlServerContext : DbContext
     {
@@ -10,14 +9,9 @@ namespace Data
         public DbSet<ToDoList> ToDoLists;
         public DbSet<Task> Tasks;
         
-        public SqlServerContext()
+        public SqlServerContext(DbContextOptions options) : base(options)
         {
             Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\\mssqllocaldb;Database=todoappservice;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

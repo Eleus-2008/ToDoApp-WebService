@@ -1,13 +1,15 @@
 using System.Collections.Generic;
-using ToDoApp.Model.Interfaces;
+using Core.Entities.Base;
 
-namespace ToDoApp.Model
+namespace Core.Entities
 {
     public class ToDoList : IEntity
     {
         public int Id { get; set; }
         
         public string Name { get; set; }
+        
+        public User ToDoListUser { get; set; }
         
         public List<Task> Tasks { get; set; } = new List<Task>();
     }
