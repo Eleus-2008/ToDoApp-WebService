@@ -5,9 +5,8 @@ using Core.Entities.Enumerations;
 
 namespace Core.Entities
 {
-    public class RepeatingConditions : IEntity
+    public class RepeatingConditions : Entity
     {
-        public int Id { get; set; }
         public TypeOfRepeatTimeSpan Type { get; set; }
         public int RepeatInterval { get; set; }
         

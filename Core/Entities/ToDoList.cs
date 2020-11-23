@@ -3,10 +3,8 @@ using Core.Entities.Base;
 
 namespace Core.Entities
 {
-    public class ToDoList : IEntity
+    public class ToDoList : Entity
     {
-        public int Id { get; set; }
-        
         public string Name { get; set; }
         
         public User ToDoListUser { get; set; }

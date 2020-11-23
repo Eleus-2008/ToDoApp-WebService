@@ -4,10 +4,8 @@ using Core.Entities.Base;
 
 namespace Core.Entities
 {
-    public class User : IEntity
+    public class User : Entity
     {
-        public int Id { get; set; }
-        
         public Guid UserId { get; set; }
         
         public List<ToDoList> ToDoLists { get; set; }

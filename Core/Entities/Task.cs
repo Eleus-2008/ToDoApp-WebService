@@ -3,10 +3,8 @@ using Core.Entities.Base;
 
 namespace Core.Entities
 {
-    public class Task : IEntity
+    public class Task : Entity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; } = string.Empty;
         public bool IsDone { get; set; }
         public DateTime? Date { get; set; }
