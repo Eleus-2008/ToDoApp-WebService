@@ -31,7 +31,11 @@
           </e>
         </e>
         <e p="Repositories" t="Include">
-          <e p="Base" t="Include" />
+          <e p="Base" t="Include">
+            <e p="IRepository.cs" t="Include" />
+          </e>
+          <e p="ITaskRepository.cs" t="Include" />
+          <e p="IToDoListRepository.cs" t="Include" />
         </e>
       </e>
       <e p="Infrastructure" t="IncludeRecursive">
