@@ -37,6 +37,12 @@
           <e p="ITaskRepository.cs" t="Include" />
           <e p="IToDoListRepository.cs" t="Include" />
         </e>
+        <e p="Specifications" t="Include">
+          <e p="Base" t="Include">
+            <e p="BaseSpecification.cs" t="Include" />
+            <e p="ISpecification.cs" t="Include" />
+          </e>
+        </e>
       </e>
       <e p="Infrastructure" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
