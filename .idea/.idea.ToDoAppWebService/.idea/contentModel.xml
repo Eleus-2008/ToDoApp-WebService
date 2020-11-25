@@ -63,6 +63,7 @@
         <e p="Repositories" t="Include">
           <e p="Base" t="Include">
             <e p="Repository.cs" t="Include" />
+            <e p="SpecificationEvaluator.cs" t="Include" />
           </e>
           <e p="TaskRepository.cs" t="Include" />
           <e p="ToDoListRepository.cs" t="Include" />

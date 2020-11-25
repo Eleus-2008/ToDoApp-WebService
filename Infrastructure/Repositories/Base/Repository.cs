@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Core.Entities.Base;
 using Core.Repositories.Base;
+using Core.Specifications.Base;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,6 +28,11 @@ namespace Infrastructure.Repositories.Base
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)
         {
             return await _dbContext.Set<T>().Where(predicate).ToListAsync();
+        }
+
+        public async Task<IReadOnlyList<T>> GetAsync(ISpecification<T> spec)
+        {
+            return await SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec).ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
