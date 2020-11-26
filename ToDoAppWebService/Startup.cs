@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Entities;
+using Infrastructure.Data;
 using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +31,8 @@ namespace ToDoAppWebService
             services.AddControllers();
 
             services.AddDataLayer(Configuration);
+            services.AddIdentityCore<User>().AddEntityFrameworkStores<SqlServerContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

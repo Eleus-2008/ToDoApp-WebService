@@ -1,11 +1,11 @@
 ﻿using Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class SqlServerContext : DbContext
+    public class SqlServerContext : IdentityDbContext
     {
-        public DbSet<User> Users;
         public DbSet<ToDoList> ToDoLists;
         public DbSet<Task> Tasks;
         
@@ -16,8 +16,6 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().ToTable("Users");
-            
             modelBuilder.Entity<Task>()
                 .OwnsOne(e => e.RepeatingConditions)
                 .ToTable("Tasks");

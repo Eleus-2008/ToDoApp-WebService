@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Entities.Base;
+using Microsoft.AspNetCore.Identity;
 
 namespace Core.Entities
 {
-    public class User : Entity
+    public class User : IdentityUser
     {
-        public Guid UserId { get; set; }
-        
         public List<ToDoList> ToDoLists { get; set; }
     }
 }
