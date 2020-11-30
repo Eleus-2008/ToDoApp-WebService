@@ -16,7 +16,7 @@ using Task = Core.Entities.Task;
 namespace ToDoAppWebService.Controllers
 {
     [ApiController]
-    [Route("api/authentication")]
+    [Route("api/[controller]/[action]")]
     public class AuthenticationController : Controller
     {
         private readonly IConfiguration _configuration;

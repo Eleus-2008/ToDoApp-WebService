@@ -5,7 +5,7 @@ namespace ToDoAppWebService.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/todolists")]
+    [Route("api/todolists/[action]")]
     public class ToDoListController : Controller
     {
         
