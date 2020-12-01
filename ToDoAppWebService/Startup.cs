@@ -32,8 +32,6 @@ namespace ToDoAppWebService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
             services.AddDataLayer(Configuration);
             services.AddIdentityCore<User>()
                 .AddEntityFrameworkStores<SqlServerContext>()
@@ -58,6 +56,8 @@ namespace ToDoAppWebService
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
                     };
                 });
+            
+            services.AddControllers();
 
         }
 
