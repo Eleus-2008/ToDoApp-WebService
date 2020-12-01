@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Core.Entities.Base;
 using Core.Entities.Enumerations;
 
@@ -12,7 +13,7 @@ namespace Core.Entities
         
         public List<DayOfWeek> RepeatingDaysOfWeek { get; set; } = new List<DayOfWeek>();
 
-        /*public string SerializedDaysOfWeek
+        public string SerializedDaysOfWeek
         {
             get
             {
@@ -25,6 +26,6 @@ namespace Core.Entities
                     .Select(x => (DayOfWeek) Enum.Parse(typeof(DayOfWeek), x))
                     .ToList();
             }
-        }*/
+        }
     }
 }
