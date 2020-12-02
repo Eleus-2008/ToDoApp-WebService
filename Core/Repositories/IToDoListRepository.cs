@@ -11,6 +11,6 @@ namespace Core.Repositories
     public interface IToDoListRepository : IRepository<ToDoList>
     {
         Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByUserAsync(User user);
-        Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByIdAsync(int id);
+        Task<IEnumerable<ToDoList>> GetToDoListWithTasksByIdAsync(int id);
     }
 }

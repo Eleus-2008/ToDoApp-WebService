@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Core.Entities;
 using Core.Repositories;
 using Core.Repositories.Base;
+using Core.Specifications;
 using Infrastructure.Data;
 using Infrastructure.Repositories.Base;
 
@@ -14,12 +15,13 @@ namespace Infrastructure.Repositories
         {
         }
 
-        public Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByUserAsync(User user)
+        public async Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByUserAsync(User user)
         {
-            throw new System.NotImplementedException();
+            var spec = new ToDoListsWithTasksByUserSpecification(user);
+            return await GetAsync(spec);
         }
 
-        public Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByIdAsync(int id)
+        public Task<IEnumerable<ToDoList>> GetToDoListWithTasksByIdAsync(int id)
         {
             throw new System.NotImplementedException();
         }
