@@ -82,6 +82,10 @@
           <e p="AuthenticationController.cs" t="Include" />
           <e p="ToDoListController.cs" t="Include" />
         </e>
+        <e p="Interfaces" t="Include">
+          <e p="ITaskService.cs" t="Include" />
+          <e p="IToDoListService.cs" t="Include" />
+        </e>
         <e p="Models" t="Include">
           <e p="LoginModel.cs" t="Include" />
           <e p="RegisterModel.cs" t="Include" />
