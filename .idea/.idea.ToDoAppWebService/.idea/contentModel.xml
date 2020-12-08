@@ -72,9 +72,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="ToDoAppWebService" t="IncludeRecursive">
-        <e p="Abstractions" t="Include">
-          <e p="IToDoListsController.cs" t="Include" />
-        </e>
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
@@ -108,6 +105,9 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="ToDoListService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="ToDoAppWebService.csproj" t="IncludeRecursive" />
