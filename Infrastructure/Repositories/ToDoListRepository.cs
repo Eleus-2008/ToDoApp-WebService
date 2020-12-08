@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Repositories;
-using Core.Repositories.Base;
 using Core.Specifications;
 using Infrastructure.Data;
 using Infrastructure.Repositories.Base;

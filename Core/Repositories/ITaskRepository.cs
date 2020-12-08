@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Core.Entities;
 using Core.Repositories.Base;
 using Task = Core.Entities.Task;
