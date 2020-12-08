@@ -95,9 +95,8 @@
           <e p="ITaskService.cs" t="Include" />
           <e p="IToDoListService.cs" t="Include" />
         </e>
-        <e p="Models" t="Include">
-          <e p="LoginModel.cs" t="Include" />
-          <e p="RegisterModel.cs" t="Include" />
+        <e p="Mapper" t="Include">
+          <e p="MappingProfile.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
