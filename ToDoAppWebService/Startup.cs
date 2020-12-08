@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Core.Entities;
+using Core.Repositories;
 using Infrastructure.Data;
 using Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -56,6 +53,11 @@ namespace ToDoAppWebService
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
                     };
                 });
+
+            services.AddScoped<IToDoListRepository, ToDoListRepository>();
+            services.AddScoped<IToDoListService, ToDoListService>();
+
+            services.AddMapper();
             
             services.AddControllers();
 
