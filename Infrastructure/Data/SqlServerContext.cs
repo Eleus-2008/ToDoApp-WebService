@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using System;
+using Core.Entities;
 using Core.Entities.Enumerations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Data
 {
-    public class SqlServerContext : IdentityDbContext
+    public class SqlServerContext : IdentityUserContext<User, Guid>
     {
         public DbSet<ToDoList> ToDoLists;
         public DbSet<Task> Tasks;

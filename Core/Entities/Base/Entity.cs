@@ -1,6 +1,8 @@
-﻿namespace Core.Entities.Base
+﻿using System;
+
+namespace Core.Entities.Base
 {
-    public abstract class Entity : EntityBase<int>
+    public abstract class Entity : EntityBase<Guid>
     {
         
     }
