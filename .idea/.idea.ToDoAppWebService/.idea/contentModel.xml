@@ -82,6 +82,15 @@
           <e p="AuthenticationController.cs" t="Include" />
           <e p="ToDoListController.cs" t="Include" />
         </e>
+        <e p="DTO" t="Include">
+          <e p="LoginDTO.cs" t="Include" />
+          <e p="RegisterDTO.cs" t="Include" />
+          <e p="TaskDTO.cs" t="Include" />
+          <e p="ToDoListDTO.cs" t="Include" />
+        </e>
+        <e p="Extensions" t="Include">
+          <e p="MapperExtension.cs" t="Include" />
+        </e>
         <e p="Interfaces" t="Include">
           <e p="ITaskService.cs" t="Include" />
           <e p="IToDoListService.cs" t="Include" />

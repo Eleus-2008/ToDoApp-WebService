@@ -10,8 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using ToDoAppWebService.Models;
-using Task = Core.Entities.Task;
+using ToDoAppWebService.DTO;
 
 namespace ToDoAppWebService.Controllers
 {
@@ -29,9 +28,9 @@ namespace ToDoAppWebService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody]RegisterModel model)
+        public async Task<IActionResult> Register([FromBody]RegisterDto dto)
         {
-            var userExists = await _userManager.FindByNameAsync(model.Username);
+            var userExists = await _userManager.FindByNameAsync(dto.Username);
             if (userExists != null)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -39,11 +38,11 @@ namespace ToDoAppWebService.Controllers
 
             var user = new User
             {
-                UserName = model.Username,
-                Email = model.Email,
+                UserName = dto.Username,
+                Email = dto.Email,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
-            var result = await _userManager.CreateAsync(user, model.Password);
+            var result = await _userManager.CreateAsync(user, dto.Password);
             if (!result.Succeeded)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -53,10 +52,10 @@ namespace ToDoAppWebService.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody]LoginModel model)
+        public async Task<IActionResult> Login([FromBody]LoginDto dto)
         {
-            var user = await _userManager.FindByNameAsync(model.Username); 
-            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            var user = await _userManager.FindByNameAsync(dto.Username); 
+            if (user != null && await _userManager.CheckPasswordAsync(user, dto.Password))
             {
                 var authClaims = new List<Claim>
                 {

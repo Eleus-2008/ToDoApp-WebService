@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ToDoAppWebService.Models
+namespace ToDoAppWebService.DTO
 {
-    public class RegisterModel
+    public class RegisterDto
     {
         [Required]
         public string Username { get; set; }
