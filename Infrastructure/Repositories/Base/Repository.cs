@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories.Base
             return await SpecificationEvaluator<T>.GetQuery(_dbContext.Set<T>().AsQueryable(), spec).AsNoTracking().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }
