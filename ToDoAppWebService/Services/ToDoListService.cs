@@ -43,14 +43,19 @@ namespace ToDoAppWebService.Services
             var lists = _mapper.Map<IEnumerable<ToDoList>>(listsDtos).ToList();
             foreach (var list in lists)
             {
-                list.UserId = user.Id;
+                var currentList = await _repository.GetByIdAsync(list.Id);
+                if (currentList != null && currentList.UserId == user.Id)
+                {
+                    currentList.Name = list.Name;
+                    
+                    await _repository.UpdateAsync(currentList);
+                }
             }
-
-            await _repository.UpdateRangeAsync(lists);
         }
 
         public async System.Threading.Tasks.Task DeleteUserToDoListsAsync(User user, IEnumerable<Guid> listsGuids)
         {
+            // выбираем списки по guid и проверяем, что они соответствуют текущему пользователю
             var deletingLists =
                 await _repository.GetAsync(e => listsGuids.Any(id => id == e.Id) && e.UserId == user.Id);
             await _repository.DeleteRangeAsync(deletingLists);
