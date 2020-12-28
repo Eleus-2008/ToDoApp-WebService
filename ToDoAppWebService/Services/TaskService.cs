@@ -24,9 +24,11 @@ namespace ToDoAppWebService.Services
             _mapper = mapper;
         }
 
-        public System.Threading.Tasks.Task<IEnumerable<TaskDto>> GetAllUserTasks(User user)
+        public async System.Threading.Tasks.Task<IEnumerable<TaskDto>> GetAllUserTasks(User user)
         {
-            throw new NotImplementedException();
+            var tasks = (await _toDoListRepository.GetToDoListsWithTasksByUserAsync(user)).SelectMany(list => list.Tasks);
+            var tasksDtos = _mapper.Map<IEnumerable<TaskDto>>(tasks);
+            return tasksDtos;
         }
 
         public async System.Threading.Tasks.Task AddUserTasks(User user, IEnumerable<TaskDto> tasksDtos)

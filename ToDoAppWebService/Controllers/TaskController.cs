@@ -25,9 +25,10 @@ namespace ToDoAppWebService.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskDto>>> GetToDoLists()
+        public async Task<ActionResult<IEnumerable<TaskDto>>> GetTasks()
         {
-            throw new NotImplementedException();
+            var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
+            return Ok(await _taskService.GetAllUserTasks(currentUser));
         }
         
         [HttpPost]
