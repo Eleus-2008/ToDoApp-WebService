@@ -27,6 +27,14 @@ namespace ToDoAppWebService.Services
             return listsDtos;
         }
 
+        public async System.Threading.Tasks.Task<IEnumerable<ToDoListDto>> GetUpdatedUserToDoListsAsync(User user,
+            DateTime lastUpdateTime)
+        {
+            var lists = await _repository.GetUpdatedToDoListsWithTasksByUserAsync(user, lastUpdateTime);
+            var listsDtos = _mapper.Map<IEnumerable<ToDoListDto>>(lists);
+            return listsDtos;
+        }
+
         public async System.Threading.Tasks.Task AddUserToDoListsAsync(User user, IEnumerable<ToDoListDto> listsDtos)
         {
             var lists = _mapper.Map<IEnumerable<ToDoList>>(listsDtos).ToList();

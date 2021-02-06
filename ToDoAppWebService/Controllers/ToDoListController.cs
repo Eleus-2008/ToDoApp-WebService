@@ -30,6 +30,14 @@ namespace ToDoAppWebService.Controllers
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
             return Ok(await _toDoListService.GetAllUserToDoListsAsync(currentUser));
         }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ToDoListDto>>> GetUpdatedToDoLists([FromBody]string lastUpdateTime)
+        {
+            var date = DateTime.Parse(lastUpdateTime);
+            var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
+            return Ok(await _toDoListService.GetUpdatedUserToDoListsAsync(currentUser, date));
+        }
         
         [HttpPost]
         public async Task<IActionResult> AddToDoLists([FromBody]IEnumerable<ToDoListDto> lists)
