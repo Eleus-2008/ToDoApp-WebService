@@ -15,6 +15,8 @@ namespace ToDoAppWebService.DTO
         public int Priority { get; set; }
         public RepeatingConditions RepeatingConditions { get; set; }
         
+        public bool IsDeleted { get; set; }
+        
         public Guid ToDoListId { get; set; } 
     }
 }
