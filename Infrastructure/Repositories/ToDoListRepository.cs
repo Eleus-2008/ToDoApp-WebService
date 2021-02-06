@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Repositories;
@@ -17,6 +18,13 @@ namespace Infrastructure.Repositories
         public async Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByUserAsync(User user)
         {
             var spec = new ToDoListsWithTasksByUserSpecification(user);
+            return await GetAsync(spec);
+        }
+
+        public async Task<IEnumerable<ToDoList>> GetUpdatedToDoListsWithTasksByUserAsync(User user,
+            DateTime lastUpdateTime)
+        {
+            var spec = new UpdatedToDoListsWithTasksByUserSpecification(user, lastUpdateTime);
             return await GetAsync(spec);
         }
 
