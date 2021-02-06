@@ -13,6 +13,9 @@ namespace Core.Entities
         public int Priority { get; set; }
         public RepeatingConditions RepeatingConditions { get; set; }
         
+        public DateTime LastUpdateTime { get; set; }
+        public bool IsDeleted { get; set; }
+        
         public Guid ToDoListId { get; set; }
         public ToDoList ToDoList { get; set; }
     }

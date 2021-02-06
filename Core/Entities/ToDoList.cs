@@ -11,6 +11,9 @@ namespace Core.Entities
         public Guid UserId { get; set; }
         public User User { get; set; }
         
+        public DateTime LastUpdateTime { get; set; }
+        public bool IsDeleted { get; set; }
+        
         public List<Task> Tasks { get; set; } = new List<Task>();
     }
 }
