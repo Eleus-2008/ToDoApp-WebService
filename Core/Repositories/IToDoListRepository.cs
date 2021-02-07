@@ -10,6 +10,6 @@ namespace Core.Repositories
     {
         Task<IEnumerable<ToDoList>> GetToDoListsWithTasksByUserAsync(User user);
         Task<IEnumerable<ToDoList>> GetUpdatedToDoListsWithTasksByUserAsync(User user, DateTime lastUpdateTime);
-        Task<IEnumerable<ToDoList>> GetToDoListWithTasksByIdAsync(int id);
+        Task<ToDoList> GetToDoListWithTasksByIdAsync(Guid id);
     }
 }

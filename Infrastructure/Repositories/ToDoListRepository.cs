@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Repositories;
@@ -28,9 +29,10 @@ namespace Infrastructure.Repositories
             return await GetAsync(spec);
         }
 
-        public Task<IEnumerable<ToDoList>> GetToDoListWithTasksByIdAsync(int id)
+        public async Task<ToDoList> GetToDoListWithTasksByIdAsync(Guid id)
         {
-            throw new System.NotImplementedException();
+            var spec = new ToDoListWithTasksByIdSpecification(id);
+            return (await GetAsync(spec)).FirstOrDefault();
         }
     }
 }

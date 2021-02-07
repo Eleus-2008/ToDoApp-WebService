@@ -43,6 +43,7 @@
             <e p="ISpecification.cs" t="Include" />
           </e>
           <e p="ToDoListsWithTasksByUserSpecification.cs" t="Include" />
+          <e p="ToDoListWithTasksByIdSpecification.cs" t="Include" />
           <e p="UpdatedToDoListsWithTasksByUserSpecification.cs" t="Include" />
         </e>
       </e>
