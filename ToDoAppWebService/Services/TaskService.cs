@@ -43,7 +43,12 @@ namespace ToDoAppWebService.Services
                 }
 
                 return false;
-            });
+            }).ToList();
+            
+            foreach (var task in addingTasks)
+            {
+                task.LastUpdateTime = DateTime.UtcNow;
+            }
             
             await _taskRepository.AddRangeAsync(addingTasks);
         }
@@ -63,6 +68,8 @@ namespace ToDoAppWebService.Services
                     currentTask.TimeOfBeginning = task.TimeOfBeginning;
                     currentTask.TimeOfEnd = task.TimeOfEnd;
                     currentTask.RepeatingConditions = currentTask.RepeatingConditions;
+                    
+                    currentTask.LastUpdateTime = DateTime.UtcNow;
 
                     await _taskRepository.UpdateAsync(currentTask);
                 }
@@ -77,7 +84,8 @@ namespace ToDoAppWebService.Services
                 var canDelete = (await _toDoListRepository.GetByIdAsync(currentTask.ToDoListId)).UserId == user.Id;
                 if (canDelete)
                 {
-                    await _taskRepository.DeleteAsync(currentTask);
+                    currentTask.IsDeleted = true;
+                    await _taskRepository.UpdateAsync(currentTask);
                 }
             }
         }
