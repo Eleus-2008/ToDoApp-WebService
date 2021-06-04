@@ -32,7 +32,7 @@ namespace ToDoAppWebService.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToDoListDto>>> GetUpdatedToDoLists([FromBody]string lastUpdateTime)
+        public async Task<ActionResult<IEnumerable<ToDoListDto>>> GetUpdatedToDoLists([FromQuery]string lastUpdateTime)
         {
             var date = DateTime.Parse(lastUpdateTime);
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));

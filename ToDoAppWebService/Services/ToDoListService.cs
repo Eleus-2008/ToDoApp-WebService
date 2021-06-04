@@ -42,6 +42,10 @@ namespace ToDoAppWebService.Services
             {
                 list.UserId = user.Id;
                 list.LastUpdateTime = DateTime.UtcNow;
+                foreach (var task in list.Tasks)
+                {
+                    task.LastUpdateTime = DateTime.UtcNow;
+                }
             }
 
             await _repository.AddRangeAsync(lists);
