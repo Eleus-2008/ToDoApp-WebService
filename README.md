@@ -1,3 +1,8 @@
-# ToDoApp-WebService - ASP.NET Core Web API
+# ToDoApp-WebService - Web API
+## Used technologies
+ASP.NET Core (including Identity), EF Core, MS SQL Server, AutoMapper
 ## Description:
-_(in progress)_
+Web service with CRUD functionality and authentication/authorization
+## To do
+- Use Swagger
+- Deploy service
