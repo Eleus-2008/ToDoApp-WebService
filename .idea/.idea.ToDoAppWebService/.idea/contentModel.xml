@@ -63,8 +63,8 @@
         <e p="Migrations" t="Include">
           <e p="20210824061510_InitialMigration.cs" t="Include" />
           <e p="20210824061510_InitialMigration.Designer.cs" t="Include" />
-          <e p="20210824065426_RenameEntities.cs" t="Include" />
-          <e p="20210824065426_RenameEntities.Designer.cs" t="Include" />
+          <e p="20210824072249_RenameEntities.cs" t="Include" />
+          <e p="20210824072249_RenameEntities.Designer.cs" t="Include" />
           <e p="SqlServerContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
