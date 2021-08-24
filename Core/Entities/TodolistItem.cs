@@ -3,7 +3,7 @@ using Core.Entities.Base;
 
 namespace Core.Entities
 {
-    public class Task : Entity
+    public class TodolistItem : Entity
     {
         public string Name { get; set; }
         public bool IsDone { get; set; }
@@ -16,7 +16,7 @@ namespace Core.Entities
         public DateTime LastUpdateTime { get; set; }
         public bool IsDeleted { get; set; }
         
-        public Guid ToDoListId { get; set; }
-        public ToDoList ToDoList { get; set; }
+        public Guid TodolistId { get; set; }
+        public Todolist Todolist { get; set; }
     }
 }

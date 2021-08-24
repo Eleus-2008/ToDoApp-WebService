@@ -6,18 +6,18 @@ using Infrastructure.Repositories.Base;
 
 namespace Infrastructure.Repositories
 {
-    public class TaskRepository : Repository<Task>, ITaskRepository
+    public class TaskRepository : Repository<TodolistItem>, ITaskRepository
     {
         public TaskRepository(SqlServerContext dbContext) : base(dbContext)
         {
         }
 
-        public System.Threading.Tasks.Task<IEnumerable<Task>> GetTasksByUserAsync(User user)
+        public System.Threading.Tasks.Task<IEnumerable<TodolistItem>> GetTasksByUserAsync(User user)
         {
             throw new System.NotImplementedException();
         }
 
-        public System.Threading.Tasks.Task<IEnumerable<Task>> GetTasksByToDoListAsync(ToDoList toDoList)
+        public System.Threading.Tasks.Task<IEnumerable<TodolistItem>> GetTasksByToDoListAsync(Todolist todolist)
         {
             throw new System.NotImplementedException();
         }

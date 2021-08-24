@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using Core.Entities;
 
 namespace ToDoAppWebService.DTO
@@ -17,6 +16,6 @@ namespace ToDoAppWebService.DTO
         
         public bool IsDeleted { get; set; }
         
-        public Guid ToDoListId { get; set; } 
+        public Guid TodolistId { get; set; } 
     }
 }

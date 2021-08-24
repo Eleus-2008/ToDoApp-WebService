@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using Core.Entities;
 using Core.Repositories.Base;
-using Task = Core.Entities.Task;
 
 namespace Core.Repositories
 {
-    public interface ITaskRepository : IRepository<Task>
+    public interface ITaskRepository : IRepository<TodolistItem>
     {
-        System.Threading.Tasks.Task<IEnumerable<Task>> GetTasksByUserAsync(User user);
-        System.Threading.Tasks.Task<IEnumerable<Task>> GetTasksByToDoListAsync(ToDoList toDoList);
+        System.Threading.Tasks.Task<IEnumerable<TodolistItem>> GetTasksByUserAsync(User user);
+        System.Threading.Tasks.Task<IEnumerable<TodolistItem>> GetTasksByToDoListAsync(Todolist todolist);
     }
 }

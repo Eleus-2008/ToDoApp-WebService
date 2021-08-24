@@ -8,8 +8,8 @@ namespace ToDoAppWebService.Mapper
     {
         public MappingProfile()
         {
-            CreateMap<ToDoList, ToDoListDto>().ReverseMap();
-            CreateMap<Task, TaskDto>().ReverseMap();
+            CreateMap<Todolist, TodolistDto>().ReverseMap();
+            CreateMap<TodolistItem, TaskDto>().ReverseMap();
         }
     }
 }

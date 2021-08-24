@@ -1,35 +1,24 @@
 ﻿using System;
 using Core.Entities;
-using Core.Entities.Enumerations;
+using Infrastructure.Configurations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Data
 {
     public class SqlServerContext : IdentityUserContext<User, Guid>
     {
-        public DbSet<ToDoList> ToDoLists;
-        public DbSet<Task> Tasks;
-        
+        public DbSet<Todolist> Todolists;
+        public DbSet<TodolistItem> TodolistItems;
+
         public SqlServerContext(DbContextOptions options) : base(options)
         {
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Task>()
-                .OwnsOne(e => e.RepeatingConditions, repeatingConditions =>
-                {
-                    repeatingConditions
-                        .Ignore(e => e.RepeatingDaysOfWeek)
-                        .Property(e => e.Type)
-                        .HasConversion(new EnumToStringConverter<TypeOfRepeatTimeSpan>())
-                        .HasColumnType("TEXT");
-                })
-                .ToTable("Tasks");
-
-            modelBuilder.Entity<ToDoList>().ToTable("ToDoLists");
+            modelBuilder.ApplyConfiguration(new TodolistItemConfiguration());
+            modelBuilder.ApplyConfiguration(new TodolistConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

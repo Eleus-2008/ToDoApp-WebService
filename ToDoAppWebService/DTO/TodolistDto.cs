@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace ToDoAppWebService.DTO
 {
-    public class ToDoListDto
+    public class TodolistDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

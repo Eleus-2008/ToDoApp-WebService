@@ -19,8 +19,8 @@
             <e p="TypeOfRepeatTimeSpan.cs" t="Include" />
           </e>
           <e p="RepeatingConditions.cs" t="Include" />
-          <e p="Task.cs" t="Include" />
           <e p="ToDoList.cs" t="Include" />
+          <e p="TodolistItem.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -49,6 +49,10 @@
       </e>
       <e p="Infrastructure" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Configurations" t="Include">
+          <e p="TodolistConfiguration.cs" t="Include" />
+          <e p="TodolistItemConfiguration.cs" t="Include" />
+        </e>
         <e p="Data" t="Include">
           <e p="SqlServerContext.cs" t="Include" />
         </e>
@@ -59,9 +63,10 @@
         <e p="Migrations" t="Include">
           <e p="20210824061510_InitialMigration.cs" t="Include" />
           <e p="20210824061510_InitialMigration.Designer.cs" t="Include" />
+          <e p="20210824065426_RenameEntities.cs" t="Include" />
+          <e p="20210824065426_RenameEntities.Designer.cs" t="Include" />
           <e p="SqlServerContextModelSnapshot.cs" t="Include" />
         </e>
-        <e p="ModelBuilders" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">

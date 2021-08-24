@@ -4,7 +4,7 @@ using Core.Entities.Base;
 
 namespace Core.Entities
 {
-    public class ToDoList : Entity
+    public class Todolist : Entity
     {
         public string Name { get; set; }
         
@@ -14,6 +14,6 @@ namespace Core.Entities
         public DateTime LastUpdateTime { get; set; }
         public bool IsDeleted { get; set; }
         
-        public List<Task> Tasks { get; set; } = new List<Task>();
+        public List<TodolistItem> Items { get; set; } = new List<TodolistItem>();
     }
 }

@@ -55,8 +55,8 @@ namespace ToDoAppWebService
                     };
                 });
 
-            services.AddScoped<IToDoListRepository, ToDoListRepository>();
-            services.AddScoped<IToDoListService, ToDoListService>();
+            services.AddScoped<ITodolistRepository, TodolistRepository>();
+            services.AddScoped<ITodolistService, TodolistService>();
             services.AddScoped<ITaskRepository, TaskRepository>();
             services.AddScoped<ITaskService, TaskService>();
 

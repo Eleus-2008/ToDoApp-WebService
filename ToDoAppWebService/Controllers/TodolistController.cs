@@ -13,53 +13,53 @@ namespace ToDoAppWebService.Controllers
     [Authorize]
     [ApiController]
     [Route("api/todolists/[action]")]
-    public class ToDoListController : Controller
+    public class TodolistController : Controller
     {
-        private readonly IToDoListService _toDoListService;
+        private readonly ITodolistService _todolistService;
         private readonly UserManager<User> _userManager;
 
-        public ToDoListController(IToDoListService toDoListService, UserManager<User> userManager)
+        public TodolistController(ITodolistService todolistService, UserManager<User> userManager)
         {
-            _toDoListService = toDoListService ?? throw new ArgumentNullException(nameof(toDoListService));
+            _todolistService = todolistService ?? throw new ArgumentNullException(nameof(todolistService));
             _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToDoListDto>>> GetToDoLists()
+        public async Task<ActionResult<IEnumerable<TodolistDto>>> GetTodolists()
         {
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
-            return Ok(await _toDoListService.GetAllUserToDoListsAsync(currentUser));
+            return Ok(await _todolistService.GetAllUserTodolistsAsync(currentUser));
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToDoListDto>>> GetUpdatedToDoLists([FromQuery]string lastUpdateTime)
+        public async Task<ActionResult<IEnumerable<TodolistDto>>> GetUpdatedTodolists([FromQuery]string lastUpdateTime)
         {
             var date = DateTime.Parse(lastUpdateTime);
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
-            return Ok(await _toDoListService.GetUpdatedUserToDoListsAsync(currentUser, date));
+            return Ok(await _todolistService.GetUpdatedUserTodolistsAsync(currentUser, date));
         }
         
         [HttpPost]
-        public async Task<IActionResult> AddToDoLists([FromBody]IEnumerable<ToDoListDto> lists)
+        public async Task<IActionResult> AddTodolists([FromBody]IEnumerable<TodolistDto> lists)
         {
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
-            await _toDoListService.AddUserToDoListsAsync(currentUser ,lists);
+            await _todolistService.AddUserTodolistsAsync(currentUser ,lists);
             return Ok();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateToDoLists([FromBody]IEnumerable<ToDoListDto> lists)
+        public async Task<IActionResult> UpdateTodolists([FromBody]IEnumerable<TodolistDto> lists)
         {
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
-            await _toDoListService.UpdateUserToDoListsAsync(currentUser ,lists);
+            await _todolistService.UpdateUserTodolistsAsync(currentUser ,lists);
             return Ok();
         }
         
         [HttpPost]
-        public async Task<IActionResult> DeleteToDoLists([FromBody]IEnumerable<Guid> listsGuids)
+        public async Task<IActionResult> DeleteTodolists([FromBody]IEnumerable<Guid> listsGuids)
         {
             var currentUser = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
-            await _toDoListService.DeleteUserToDoListsAsync(currentUser ,listsGuids);
+            await _todolistService.DeleteUserTodolistsAsync(currentUser ,listsGuids);
             return Ok();
         }
     }

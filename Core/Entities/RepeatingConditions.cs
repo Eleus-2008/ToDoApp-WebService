@@ -12,20 +12,5 @@ namespace Core.Entities
         public int RepeatInterval { get; set; }
         
         public List<DayOfWeek> RepeatingDaysOfWeek { get; set; } = new List<DayOfWeek>();
-
-        public string SerializedDaysOfWeek
-        {
-            get
-            {
-                return string.Join(",", RepeatingDaysOfWeek.ConvertAll(input => input.ToString()));
-            }
-            set
-            {
-                RepeatingDaysOfWeek = value.Split(',')
-                    .Where(x => x != "")
-                    .Select(x => (DayOfWeek) Enum.Parse(typeof(DayOfWeek), x))
-                    .ToList();
-            }
-        }
     }
 }
