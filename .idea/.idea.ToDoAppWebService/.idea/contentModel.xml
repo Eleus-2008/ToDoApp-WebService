@@ -56,6 +56,12 @@
           <e p="DataLayerExtension.cs" t="Include" />
         </e>
         <e p="Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20210824061510_InitialMigration.cs" t="Include" />
+          <e p="20210824061510_InitialMigration.Designer.cs" t="Include" />
+          <e p="SqlServerContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="ModelBuilders" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
