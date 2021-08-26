@@ -47,6 +47,32 @@
           <e p="UpdatedToDoListsWithTasksByUserSpecification.cs" t="Include" />
         </e>
       </e>
+      <e p="IdentityServer" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Config.cs" t="Include" />
+        <e p="Data" t="Include">
+          <e p="SqlServerContext.cs" t="Include" />
+        </e>
+        <e p="IdentityServer.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="IdentityServer.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="ProfileService.cs" t="Include" />
+          <e p="ResourceOwnerPasswordValidator.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="tempkey.jwk" t="Include" />
+      </e>
       <e p="Infrastructure" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Configurations" t="Include">

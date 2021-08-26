@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{D5C13250-50B9-41E5-B06B-33FFC33E2F1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{59EAB54E-0412-45A4-B697-1E1297C7BF9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{D5C13250-50B9-41E5-B06B-33FFC33E2F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C13250-50B9-41E5-B06B-33FFC33E2F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C13250-50B9-41E5-B06B-33FFC33E2F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59EAB54E-0412-45A4-B697-1E1297C7BF9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59EAB54E-0412-45A4-B697-1E1297C7BF9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59EAB54E-0412-45A4-B697-1E1297C7BF9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59EAB54E-0412-45A4-B697-1E1297C7BF9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
