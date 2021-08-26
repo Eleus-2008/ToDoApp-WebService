@@ -1,17 +1,14 @@
-using System.Text;
 using Core.Entities;
 using Core.Repositories;
 using Infrastructure.Data;
 using Infrastructure.Extensions;
 using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ToDoAppWebService.Extensions;
@@ -37,15 +34,16 @@ namespace ToDoAppWebService
                 .AddEntityFrameworkStores<SqlServerContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddAuthentication(options =>
-                {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
+            services.AddAuthentication("Bearer")
                 .AddJwtBearer(options =>
                 {
-                    options.SaveToken = true;
+                    options.Authority = "https://localhost:44534";
+                    
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = false
+                    };
+                    /*options.SaveToken = true;
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {
@@ -54,7 +52,7 @@ namespace ToDoAppWebService
                         ValidAudience = Configuration["JWT:ValidAudience"],
                         ValidIssuer = Configuration["JWT:ValidIssuer"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                    };
+                    };*/
                 });
 
             services.AddScoped<ITodolistRepository, TodolistRepository>();
@@ -77,7 +75,7 @@ namespace ToDoAppWebService
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); 
             }
 
             app.UseHttpsRedirection();

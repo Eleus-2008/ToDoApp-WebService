@@ -81,7 +81,7 @@ namespace ToDoAppWebService.Controllers
                 );
 
                 _logger.LogInformation("Выдан токен пользователю {Username}, действительный до {ExpirationTime}",
-                    user.UserName, DateTime.Now.AddHours(3));
+                    user.UserName, token.ValidTo);
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
