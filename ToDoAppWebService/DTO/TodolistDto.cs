@@ -10,6 +10,6 @@ namespace ToDoAppWebService.DTO
         
         public bool IsDeleted { get; set; }
         
-        public List<TaskDto> Tasks { get; set; }
+        public List<TaskDto> Items { get; set; }
     }
 }

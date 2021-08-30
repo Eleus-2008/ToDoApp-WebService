@@ -11,6 +11,10 @@ namespace Infrastructure.Data
         public DbSet<Todolist> Todolists;
         public DbSet<TodolistItem> TodolistItems;
 
+        public SqlServerContext()
+        {
+        }
+
         public SqlServerContext(DbContextOptions options) : base(options)
         {
         }
